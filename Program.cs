@@ -1,23 +1,31 @@
 ﻿using System;
 
-namespace Lab1_OOP
+namespace Testing_Program
 {
     class Program
     {
-        static void Main(string[] args)
+
+        static void Main()
         {
-            Hotel h1 = new Hotel();
-            h1.name = "Dolphin";
-            h1.floorNum = 6;
-            h1.roomNum = 15;
-            h1.maxVisitors = 120;
-            h1.currVisitors = 64;
-            h1.isNoSmoking = false;
-            h1.HotelStat();
+            Hotel h1 = new Hotel // add Object 
+            {
+                name = "Dolphin",
+                floorNum = 6,
+                roomNum = 15,
+                maxVisitors = 120,
+                currVisitors = 78,
+                isNoSmoking = false,
+                inMoney = 250000,
+                outMoney = 73000
+            };
+            h1.HotelStat();   // out data obj
             h1.AddVisitors(8);
             h1.ReduceVisitors(6);
-            h1.currInfo();
+            h1.CurrInfo();
+            h1.Interest();
+            h1.Profitability();
             Console.ReadKey();
         }
+
     }
 }
