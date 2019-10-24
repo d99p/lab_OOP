@@ -12,7 +12,6 @@ namespace Testing_Program
         public void HotelStat() // Hotel information
         {
         Console.WriteLine(" ПОТОЧНИЙ СТАН ГОТЕЛЮ ");
-        Console.WriteLine("Ім'я готелю: " + name);
         Console.WriteLine("Кількість поверхів: " + floorNum);
         Console.WriteLine("Кількість кімнат " + roomNum);
         Console.WriteLine("Максимальна кількість гостей " + maxVisitors);
@@ -32,27 +31,32 @@ namespace Testing_Program
         }
         public void ReduceVisitors(int outVisitors) // ReduceVisitors 
         {
-        currVisitors = (currVisitors - outVisitors);
+            if (outVisitors >= 1)      
+                currVisitors = (currVisitors - outVisitors);
+            else
+                Console.WriteLine("Невірний запис");
         }
 
         public void CurrInfo() // Info hotel Visitors
         {
-        Console.WriteLine("Кількість постоляців на даний момент: " + currVisitors);
+            Console.WriteLine("Кількість постоляців на даний момент: " + currVisitors);
         }
 
         public void Interest() // Interest hotel
         {
-            double intrs = NewMethod;
+            double intrs = InterestMethod;
             Console.WriteLine("Заповнення готелю в даний момент:" + Convert.ToInt32(intrs) + "%");
         }
 
-        private double NewMethod => (double)currVisitors / maxVisitors * 100;
+        private double InterestMethod => (double)currVisitors / maxVisitors * 100;
 
         public void Profitability()
         {
-
-            double prof = ( inMoney / outMoney * 100); // Profitability Hotel
+            double prof = ProfitabilityMethod;
             Console.WriteLine("Дохід:" + Convert.ToInt32(prof) + "%");
         }
+
+        private double ProfitabilityMethod => (inMoney - outMoney) / inMoney * 100;  // Profitability Hotel
+                                                                                    
     }
 }
